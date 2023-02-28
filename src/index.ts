@@ -34,7 +34,7 @@ import {
   NCGetDaoProposals, NCDaoProposalVote, NCDaoWithdrawVoteDeposit,
   NCCreatePermission, NCGetAccInfo, NCGetPoolInfo, NCLinkPerm,
   NCPoolsInfo, NCNameType, NCSwapNCOtoCC,
-  NCReturnTxs, NCReturnInfo, NCTxBal, NCTxNcoBal, NCKeyValPair, NCMintBadge,
+  NCReturnTxs, NCReturnInfo, NCTxBal, NCTxNcoBal, NCKeyValPair, NCMintBadge, NCSwapCCToNCO,
 } from "./types";
 
 import {
@@ -547,6 +547,13 @@ async mintBadge(inpt: NCMintBadge ) {
     if(this.debug) console.log(resp2);
     
     return resp2;
+  }
+
+  async swapCreatorCoinToNco( inpt: NCSwapCCToNCO ) {
+    console.log("trying to swap to GNCO :  " + inpt.amt);
+    const response = await this.pools.swapCreatorCoinToNco(inpt);
+    if (this.debug) console.log(response);
+    return response;
   }
   
 

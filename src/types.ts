@@ -1,5 +1,3 @@
-
-
 import { TransactResult } from "eosjs/dist/eosjs-api-interfaces";
 //import { type } from "os";
 
@@ -9,57 +7,57 @@ export type NCKeyPair = {
 };
 
 export type NCNameType = {
-  name: string,
-  type: string
+  name: string;
+  type: string;
 };
 
 export type NCBuyRam = {
   user: string;
   payer: string;
   payer_prv_key: string;
-  ram_amt: number ;
-}
+  ram_amt: number;
+};
 
 export type NCCreateUser = {
-  newUser: string,
-  newacc_pub_active_key: string,
-  newacc_pub_owner_key: string,
-  payer: string,
-  payer_prv_key: string
-  ram_amt?: number,
-  cpu_amount?: string,
-  net_amount?: string,
-  xfer?: boolean // stake or transfer CPU/NET to the account
+  newUser: string;
+  newacc_pub_active_key: string;
+  newacc_pub_owner_key: string;
+  payer: string;
+  payer_prv_key: string;
+  ram_amt?: number;
+  cpu_amount?: string;
+  net_amount?: string;
+  xfer?: boolean; // stake or transfer CPU/NET to the account
 };
 
 export type NCCreateCollection = {
-  user: string,
-  user_prv_active_key: string,
-  collection_name?: string,
-  schema_name?: string,
-  schema_fields?: NCNameType[],
-  template_name?: string,
-  template_fields?: NCNameType[],
-  mkt_fee?: number,
-  allow_notify?: boolean,
-  xferable?: boolean,
-  burnable?: boolean,
-  max_supply?: number
+  user: string;
+  user_prv_active_key: string;
+  collection_name?: string;
+  schema_name?: string;
+  schema_fields?: NCNameType[];
+  template_name?: string;
+  template_fields?: NCNameType[];
+  mkt_fee?: number;
+  allow_notify?: boolean;
+  xferable?: boolean;
+  burnable?: boolean;
+  max_supply?: number;
 };
 
 export type NCCreatePermission = {
-  author: string,
-  perm_name: string,
-  perm_pub_key: string,
-  author_prv_active_key: string
+  author: string;
+  perm_name: string;
+  perm_pub_key: string;
+  author_prv_active_key: string;
 };
 
 export type NCLinkPerm = {
-  author: string,               // the owner of the permission
-  perm_to_link: string,
-  action_owner: string,
-  action_to_link: string,
-  author_prv_active_key: string
+  author: string; // the owner of the permission
+  perm_to_link: string;
+  action_owner: string;
+  action_to_link: string;
+  author_prv_active_key: string;
 };
 
 export type NCCreatePool = {
@@ -90,7 +88,6 @@ export type NCUnstakePool = {
   payer_prv_key: string;
 };
 
-
 export type NCTxNcoBal = {
   to: string;
   amt: string;
@@ -115,104 +112,108 @@ export type NCPoolInfo = {
   total: {
     quantity: string;
     contract: string;
-  }
+  };
   creation_date: string;
   last_update_date: string;
-
 };
 
 export type NCPoolsInfo = {
   rows: NCPoolInfo[];
   more: boolean;
   next_key: string;
-}
+};
 
 export type NCSwapNCOtoCC = {
-  amt: string,  
-  payer: string,
-  payer_prv_key: string,
-  creator_to: string
-}
+  amt: string;
+  payer: string;
+  payer_prv_key: string;
+  creator_to: string;
+};
 
+export type NCSwapCCToNCO = {
+  creator_to: string;
+  amt: string;
+  payer: string;
+  payer_prv_key: string;
+};
 
 export type NCCreateDao = {
-  author: string,
-  author_prv_key: string,
-  token?: string,
-  descr: string
-}
+  author: string;
+  author_prv_key: string;
+  token?: string;
+  descr: string;
+};
 
 export type NCCreateDaoProposal = {
-  proposer: string,
-  proposer_prv_key: string,
-  dao_id?: string,
-  dao_owner: string,
-  title: string,
-  summary: string,
-  url: string,
-  pass_rate: number,
-  vote_start: string,
-  vote_end: string
+  proposer: string;
+  proposer_prv_key: string;
+  dao_id?: string;
+  dao_owner: string;
+  title: string;
+  summary: string;
+  url: string;
+  pass_rate: number;
+  vote_start: string;
+  vote_end: string;
 };
 
 export type NCCreateDaoUserWhitelistProposal = {
-  proposer: string,
-  proposer_prv_key: string,
-  dao_id?: string,
-  dao_owner: string,
-  user: string,
-  type: string,
-  pass_rate: number,
-  vote_start: string,
-  vote_end: string
+  proposer: string;
+  proposer_prv_key: string;
+  dao_id?: string;
+  dao_owner: string;
+  user: string;
+  type: string;
+  pass_rate: number;
+  vote_start: string;
+  vote_end: string;
 };
 
 export type NCCreateDaoStakeProposal = {
-  proposer: string,
-  proposer_prv_key: string,
-  dao_id?: string,
-  dao_owner: string,
-  to: string,
+  proposer: string;
+  proposer_prv_key: string;
+  dao_id?: string;
+  dao_owner: string;
+  to: string;
   quantity: {
-    quantity: string,
-    contract: string
-  },
-  pass_rate: number,
-  vote_start: string,
-  vote_end: string
+    quantity: string;
+    contract: string;
+  };
+  pass_rate: number;
+  vote_start: string;
+  vote_end: string;
 };
 
 export type NCApproveDaoProposal = {
-  approver: string,
-  approver_prv_key: string,
-  dao_id?: number,
-  dao_owner?: string,
-  proposal_id?: number,
-  proposal_author?: string
+  approver: string;
+  approver_prv_key: string;
+  dao_id?: number;
+  dao_owner?: string;
+  proposal_id?: number;
+  proposal_author?: string;
 };
 
 export type NCExecuteDaoProposal = {
-  exec: string,
-  exec_prv_key: string,
-  dao_id?: number,
-  dao_owner?: string,
-  proposal_id?: number,
-  proposal_author?: string
-
+  exec: string;
+  exec_prv_key: string;
+  dao_id?: number;
+  dao_owner?: string;
+  proposal_id?: number;
+  proposal_author?: string;
 };
 
 export type NCGetDaoProposals = {
-  dao_id?: string,
-  dao_owner?: string,
+  dao_id?: string;
+  dao_owner?: string;
 
-  proposal_id?: string,
+  proposal_id?: string;
   proposal_author?: string;
-  
+
   lower_bound?: string;
   upper_bound?: string;
   limit?: number;
   reverse?: boolean;
-}
+};
 
 export type NCDaoProposalVote = {
   voter: string;
@@ -221,111 +222,110 @@ export type NCDaoProposalVote = {
   dao_owner?: string;
   proposal_id: string;
   proposal_type?: string;
-  quantity: string;   
-  option: string;     // YES/NO
-}
+  quantity: string;
+  option: string; // YES/NO
+};
 
 export type NCDaoWithdrawVoteDeposit = {
   voter: string;
   voter_prv_key: string;
   vote_id: string;
-}
+};
 
 export type NCGetVotes = {
-  voter: string,
+  voter: string;
   lower_bound?: string;
   upper_bound?: string;
   limit?: string;
   reverse?: boolean;
-}
+};
 
 export type NCGetDaoWhiteList = {
-  dao_id?: string,
-  dao_owner?: string,
+  dao_id?: string;
+  dao_owner?: string;
   lower_bound?: string;
   upper_bound?: string;
   limit?: string;
   reverse?: boolean;
-}
+};
 
 export type NCKeyValPair = {
-  key: string,
+  key: string;
   value: string[];
 };
 
 export type NCMintAsset = {
-  creator: string,
-  col_name?: string,
-  sch_name?: string,
-  tmpl_id?: number,
-  immutable_data: NCKeyValPair[],
-  mutable_data: NCKeyValPair[],
-  payer?: string,
-  payer_prv_key?: string,
-  user_prv_active_key?: string 
+  creator: string;
+  col_name?: string;
+  sch_name?: string;
+  tmpl_id?: number;
+  immutable_data: NCKeyValPair[];
+  mutable_data: NCKeyValPair[];
+  payer?: string;
+  payer_prv_key?: string;
+  user_prv_active_key?: string;
 };
 
 export type NCModifyAsset = {
-  editor: string, 
-  owner: string,
-  asset_id: string,
-  new_data: NCKeyValPair[], // mutable data
-  payer: string,
-  payer_prv_key: string
-}
+  editor: string;
+  owner: string;
+  asset_id: string;
+  new_data: NCKeyValPair[]; // mutable data
+  payer: string;
+  payer_prv_key: string;
+};
 
 export type NCMintNftToRoot = {
-  creator: string,
-  immutable_data: NCKeyValPair[],
-  mutable_data: NCKeyValPair[],
-  payer: string,
-  payer_prv_key: string
-}
+  creator: string;
+  immutable_data: NCKeyValPair[];
+  mutable_data: NCKeyValPair[];
+  payer: string;
+  payer_prv_key: string;
+};
 
 export type NCMintLink = {
-  creator:  string, // 
-  col_name: string, // which collection to put the link, e.g. creator's root collection
-  subj_name: string, 
-  subj_type: string,
-  description?: string,
-  image?: string,
-  payer:         string,
-  payer_prv_key: string
+  creator: string; //
+  col_name: string; // which collection to put the link, e.g. creator's root collection
+  subj_name: string;
+  subj_type: string;
+  description?: string;
+  image?: string;
+  payer: string;
+  payer_prv_key: string;
 };
 
 export type NCMintLike = {
-  issuer:     string,     // 
-  col_name?:  string,     // which collection to put the link, e.g. creator's root collection
+  issuer: string; //
+  col_name?: string; // which collection to put the link, e.g. creator's root collection
 
-  subj_type:   string,     // what is being liked
-  subj_name:     string,     // specific name
-  value?:      string,      // deeplike? 0-100
+  subj_type: string; // what is being liked
+  subj_name: string; // specific name
+  value?: string; // deeplike? 0-100
 
-  payer?:        string, 
-  payer_prv_key: string
+  payer?: string;
+  payer_prv_key: string;
 };
 
 export type NCMintBadge = {
-  issuer:           string;
-  badge_name:       string; 
-  col_name?:        string; // by default root collection of the creator
-  subj_name:         string; // account name subject of a badge, can be DID or local account name
-  weight:           string; // 0/1 for boolean
-  payer:            string,
-  payer_prv_key:    string
-}
+  issuer: string;
+  badge_name: string;
+  col_name?: string; // by default root collection of the creator
+  subj_name: string; // account name subject of a badge, can be DID or local account name
+  weight: string; // 0/1 for boolean
+  payer: string;
+  payer_prv_key: string;
+};
 
 export type NCMintProfile = {
-
   status: string;
   offer: string;
 
-  displayName: string,
-  source: string, // one of the socials
-  authority: string,
-  signature: string,
+  displayName: string;
+  source: string; // one of the socials
+  authority: string;
+  signature: string;
 
-  content: string,
+  content: string;
   bio: string;
   fullName: string;
   firstName: string;
@@ -339,64 +339,63 @@ export type NCMintProfile = {
   coverContentUrl: string;
   blurHash: string;
   aspectRatio: string;
-  creator: string,
+  creator: string;
 
-  instagram: string,
-  tiktok :   string,
-  youtube:   string,
-  twitter:   string,
-  spotify:   string,
-  pinterest: string,
-  snapchat:  string,
-  reddit:    string,
-  discord:   string,
-  tumblr:    string,
-  soundcloud:string,
-  apple:     string,
-  telegram:  string,
-  signal:    string,
-  medium:    string,
-  facebook:  string,
-  facebookId:string,
-  youtubeId: string  
-  payer:     string,
+  instagram: string;
+  tiktok: string;
+  youtube: string;
+  twitter: string;
+  spotify: string;
+  pinterest: string;
+  snapchat: string;
+  reddit: string;
+  discord: string;
+  tumblr: string;
+  soundcloud: string;
+  apple: string;
+  telegram: string;
+  signal: string;
+  medium: string;
+  facebook: string;
+  facebookId: string;
+  youtubeId: string;
+  payer: string;
 
-  payer_prv_key: string,
-  user_prv_active_key: string
+  payer_prv_key: string;
+  user_prv_active_key: string;
 };
 
-
-export type  NCMintFile = {
-  creator: string,
-  name: string, 
-  path: string,
-  image: string,
-  content: string,
-  payer: string,
-  payer_prv_key: string,
-  user_prv_active_key: string
+export type NCMintFile = {
+  creator: string;
+  name: string;
+  path: string;
+  image: string;
+  content: string;
+  payer: string;
+  payer_prv_key: string;
+  user_prv_active_key: string;
 };
 
 export type NCChangeFile = {
-  editor: string, 
-  owner: string,
-  asset_id: string,
-  new_name?: string,
-  new_path?: string,
-  new_content?: string,
-  new_image?: string,
-  payer?: string,
-  payer_prv_key: string
+  editor: string;
+  owner: string;
+  asset_id: string;
+  new_name?: string;
+  new_path?: string;
+  new_content?: string;
+  new_image?: string;
+  payer?: string;
+  payer_prv_key: string;
 };
 
 export type NCGetAccInfo = {
-  owner: string,
-  contract?: string,
-  token_name?: string
-};                 
+  owner: string;
+  contract?: string;
+  token_name?: string;
+};
 
 export type NCGetPoolInfo = {
-  owner?: string
+  owner?: string;
   code?: string;
 };
 
@@ -404,19 +403,24 @@ export type NCReturnTxs = {
   TxID_createAcc?: string;
   TxID_createCol?: string;
   TxID_createSch?: string;
-  TxID_createTpl?: string; template_id?: string;
+  TxID_createTpl?: string;
+  template_id?: string;
 
   TxID_createPerm?: string;
   TxID_linkPerm?: string;
 
   TxID_createPool?: string;
-  TxID_stakePool?: string; pool_code?: string; pool_id?: string;
+  TxID_stakePool?: string;
+  pool_code?: string;
+  pool_id?: string;
   TxID_unstakePool?: string;
 
   TxID_createDao?: string;
-  TxID_createDaoProposal?: string; dao_id?: string; proposal_id?: number;
-  TxID_approveDaoProposal?: string,
-  TxID_executeDaoProposal?: string,
+  TxID_createDaoProposal?: string;
+  dao_id?: string;
+  proposal_id?: number;
+  TxID_approveDaoProposal?: string;
+  TxID_executeDaoProposal?: string;
   TxID_voteDaoProposal?: string;
   TxID_WithdrawVoteDeposit?: string;
 
@@ -426,12 +430,13 @@ export type NCReturnTxs = {
   TxID_stakeMainDAO?: string;
   TxID_unstakeMainDAO?: string;
 
-  TxID_mintAsset?: string; asset_id?: string;
+  TxID_mintAsset?: string;
+  asset_id?: string;
   TxID_modifyAsset?: string;
-  
+
   TxID_mintNft?: string;
-  TxID_mintProfile?: string; 
-  TxID_mintFile?: string; 
+  TxID_mintProfile?: string;
+  TxID_mintFile?: string;
   TxID_changeFile?: string;
 
   TxID_txNcoBalance?: string;
@@ -440,6 +445,5 @@ export type NCReturnTxs = {
 };
 
 export type NCReturnInfo = {
-  acc_balances?: string[]
+  acc_balances?: string[];
 };
-
